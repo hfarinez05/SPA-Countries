@@ -5,14 +5,14 @@ const URL = "http://localhost:5000/countries";
 const infoClean = (arr) =>
   arr.map((c) => {
     return {
-      ID: c.cca3,
-      Nombre: c.name.common,
-      Imagen: c.flags.png,
-      Continente: c.continents,
-      Capital: c.capital,
-      Subregion: c.subregion,
-      Area: c.area,
-      Poblacion: c.population,
+      Id: c.cca3,
+      name: c.name.common,
+      image: c.flags.png,
+      continents: c.continents,
+      capital: c.capital,
+      subregion: c.subregion,
+      area: c.area,
+      population: c.population,
     };
   });
 
@@ -30,11 +30,13 @@ const getCountryByName = async (name) => {
 
   const countryApi = infoClean(infoApi);
 
-  const countryFiltered = countryApi.filter((c) => c.name === name);
+  const countryMatch = countryApi.filter((c) =>
+    new RegExp(name, "i").test(c.name)
+  );
 
   //const countryTheDB = await Country.findAll({ where: { name: name } });
 
-  return countryFiltered;
+  return countryMatch;
 };
 
 module.exports = { getAllCountry, getCountryByName };
