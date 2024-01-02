@@ -6,36 +6,44 @@ module.exports = (sequelize) => {
   sequelize.define(
     "Country",
     {
-      ID: {
+      id: {
         type: DataTypes.STRING(3),
         primaryKey: true,
         allowNull: false,
       },
-      Nombre: {
+      name: {
         type: DataTypes.STRING,
         allowNull: false,
       },
-      Imagen: {
+      image: {
         type: DataTypes.STRING,
         allowNull: false,
       },
-      Continente: {
+      continents: {
+        type: DataTypes.ENUM(
+          "Europe",
+          "Africa",
+          "Asia",
+          "South America",
+          "Oceania",
+          "North America",
+          "Antarctica"
+        ),
+        allowNull: false,
+      },
+      capital: {
         type: DataTypes.STRING,
         allowNull: false,
       },
-      Capital: {
-        type: DataTypes.STRING,
-        allowNull: false,
-      },
-      Subregion: {
+      subregion: {
         type: DataTypes.STRING,
         allowNull: true,
       },
-      Area: {
+      area: {
         type: DataTypes.FLOAT,
         allowNull: true,
       },
-      Poblacion: {
+      population: {
         type: DataTypes.INTEGER,
         allowNull: false,
       },

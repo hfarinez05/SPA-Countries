@@ -4,17 +4,17 @@ module.exports = (sequelize) => {
   sequelize.define(
     "Activity",
     {
-      ID: {
+      id: {
         type: DataTypes.INTEGER,
         primaryKey: true,
         autoIncrement: true,
         allowNull: false,
       },
-      Nombre: {
+      name: {
         type: DataTypes.STRING,
         allowNull: false,
       },
-      Dificultad: {
+      difficulty: {
         type: DataTypes.INTEGER,
         allowNull: false,
         validate: {
@@ -22,11 +22,11 @@ module.exports = (sequelize) => {
           max: 5,
         },
       },
-      Duracion: {
+      duration: {
         type: DataTypes.TIME,
         allowNull: true,
       },
-      Temporada: {
+      season: {
         type: DataTypes.ENUM("Verano", "Invierno", "Otoño", "Primavera"),
       },
     },

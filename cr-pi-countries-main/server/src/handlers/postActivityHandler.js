@@ -3,15 +3,15 @@
 const { createActivityDB } = require("../controllers/activityPostController");
 
 const createActivityHandler = async (req, res) => {
-  const { ID, Nombre, Dificultad, Duracion, Temporada } = req.body;
+  const { CountryId, name, difficulty, duration, season } = req.body;
 
   try {
     const response = await createActivityDB(
-      ID,
-      Nombre,
-      Dificultad,
-      Duracion,
-      Temporada
+      CountryId,
+      name,
+      difficulty,
+      duration,
+      season
     );
     res.status(200).json(response);
   } catch (error) {

@@ -1,19 +1,21 @@
 const { Activity } = require("../db");
 
 const createActivityDB = async (
-  ID,
-  Nombre,
-  Dificultad,
-  Duracion,
-  Temporada
+  CountryId,
+  name,
+  difficulty,
+  duration,
+  season
 ) => {
   const newActivity = await Activity.create({
-    ID,
-    Nombre,
-    Dificultad,
-    Duracion,
-    Temporada,
+    CountryId,
+    name,
+    difficulty,
+    duration,
+    season,
   });
+
+  await newActivity.addCountries(CountryId);
 
   return newActivity;
 };

@@ -6,6 +6,7 @@ const {
 
 const getCountryHandler = async (req, res) => {
   const { name } = req.query;
+
   try {
     if (name) {
       const countryByName = await getCountryByName(name);
@@ -21,10 +22,11 @@ const getCountryHandler = async (req, res) => {
 
 // ------>>>> /:idPais => params
 const getIdCountryHandler = async (req, res) => {
-  const { id } = params;
+  const idPais = req.params.idPais.toUpperCase();
+  //const { idPais } = req.params;
 
   try {
-    const response = await getCountryById(id);
+    const response = await getCountryById(idPais);
     res.status(200).json(response);
   } catch (error) {
     res.status(400).json({ error: error.message });
