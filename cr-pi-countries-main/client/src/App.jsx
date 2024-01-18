@@ -4,7 +4,7 @@ import Home from "./views/home/Home";
 import Detail from "./views/detail/Detail";
 import Create from "./views/create/Create";
 
-function App() {
+const App = () => {
   return (
     <div className="App">
       <Routes>
@@ -16,6 +16,6 @@ function App() {
       </Routes>
     </div>
   );
-}
+};
 
 export default App;

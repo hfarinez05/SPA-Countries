@@ -16,21 +16,24 @@ const Detail = () => {
   }, [dispatch, id]);
 
   return (
-    <div className={styles.maindetail}>
-      <span>Abreviatura: {country.id}</span>
-      <span>Soy {country.name}</span>
-      <br />
-      <span>Mi capital es: {country.capital}</span>
-      <br />
-      <span>Me ubico en el continente de: {country.continents}</span>
-      <br />
-      <span>{country.subregion}</span>
-      <br />
-      <span>{country.area}</span>
-      <br />
-      <span>Somos {country.population} habitantes</span>
-      <div className={styles.boximage}>
-        <img src={country.image} alt="Bandera del pais" />
+    <div className={styles.box}>
+      <div className={styles.maindetail}>
+        <h5>Abreviatura: {country.id}</h5>
+
+        <h5>Capital: {country.capital}</h5>
+
+        <h5>Continents: {country.continents}</h5>
+
+        <h5>Subregion: {country.subregion}</h5>
+
+        <h5>Area: {country.area}</h5>
+
+        <h5>Population: {country.population} </h5>
+
+        <div className={styles.boximage}>
+          <h2>Name: {country.name}</h2>
+          <img src={country.image} alt="Bandera del pais" />
+        </div>
       </div>
     </div>
   );
