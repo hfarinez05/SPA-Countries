@@ -1,33 +1,30 @@
-.navbar {
-  display: flex;
-  justify-content: space-between;
-}
-
-.menu {
+/* .navlanding .menu {
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
-.navbar {
+.navlanding {
   background-color: #f0f0f0;
-  padding: 25px;
+  padding: 20px;
   border-radius: 50px;
   overflow: hidden;
   box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
 }
 
 .menu li {
-  text-decoration: none;
   list-style: none;
   margin: 0 10px;
+}
 
+.menu li a {
+  text-decoration: none;
   color: #666;
   text-transform: uppercase;
   font-weight: 600;
   transition: 0.5s;
 }
 
-.menu li:hover {
+.menu li a:hover {
   color: #161919;
-}
+} */

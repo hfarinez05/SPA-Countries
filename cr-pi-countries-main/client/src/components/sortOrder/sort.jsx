@@ -2,6 +2,8 @@ import { useDispatch } from "react-redux";
 
 import { alfabeticSort, populationSort } from "../../redux/actions";
 
+import styles from "../sortOrder/Sort.module.css";
+
 const Sort = () => {
   const dispatch = useDispatch();
 
@@ -15,20 +17,25 @@ const Sort = () => {
     dispatch(populationSort(value));
   };
   return (
-    <div>
-      <button name="Asce" onClick={handleClick}>
-        A-Z
-      </button>
-      <button name="Desc" onClick={handleClick}>
-        Z-A
-      </button>
-      <select onChange={handleSelectChange}>
-        <option value="" disabled>
-          Population
-        </option>
-        <option value="Menor">Ascending</option>
-        <option value="Mayor">Descending</option>
-      </select>
+    <div className={styles.mainSort}>
+      <div className={styles.buttonsAlphabetic}>
+        <button name="Asce" onClick={handleClick}>
+          A-Z
+        </button>
+        <button name="Desc" onClick={handleClick}>
+          Z-A
+        </button>
+      </div>
+
+      <div className={styles.buttonsPopulation}>
+        <select onChange={handleSelectChange}>
+          <option value="" disabled>
+            Population
+          </option>
+          <option value="Menor">Descending</option>
+          <option value="Mayor">Ascending</option>
+        </select>
+      </div>
     </div>
   );
 };

@@ -19,8 +19,8 @@ const Home = () => {
 
   const filters = useSelector((state) => state.filters);
 
-  const sortActive = filters.sortAlfabetic !== null;
-  const sortPopulation = filters.sortPopulation !== null;
+  //const sortActiveAlfabetic = filters.sortAlfabetic !== null;
+  //const sortPopulation = filters.sortPopulation !== null;
 
   const [searchString, setSearchString] = useState("");
 
@@ -34,46 +34,42 @@ const Home = () => {
     dispatch(getCountriesByName(searchString));
   }
 
-  // const [filter, setFilter] = useState(allCountries);
-
-  // function handleSubmit(e) {
-  //   e.preventDefault();
-  //   const filtered = allCountries.filter((country) =>
-  //     country.name.includes(searchString)
-  //   );
-  //   setFilter(filtered);
-  // }
-
   useEffect(() => {
     dispatch(getCountries());
   }, [dispatch]);
 
   return (
-    <div className={styles.mainhome}>
-      <h1>Home</h1>
-      <Navbar handleChange={handleChange} handleSubmit={handleSubmit} />
-
-      <Sort />
-      {sortActive ? (
-        <div className="">Sort Alphabetic Active: {filters.sortAlfabetic}</div>
-      ) : (
-        <div className="">Sort Alphabetic Inactive</div>
-      )}
-
+    <>
       <div>
-        {sortPopulation ? (
+        <Navbar handleChange={handleChange} handleSubmit={handleSubmit} />
+
+        <Sort />
+      </div>
+
+      <div className={styles.mainhome}>
+        {/* {sortActiveAlfabetic ? (
           <div className="">
-            Sort Population Active: {filters.sortPopulation}
+            Sort Alphabetic Active: {filters.sortAlfabetic}
           </div>
         ) : (
-          <div className="">Sort Population Inactive</div>
+          <div className="">Sort Alphabetic Inactive</div>
         )}
+
+        <div>
+          {sortPopulation ? (
+            <div className="">
+              Sort Population Active: {filters.sortPopulation}
+            </div>
+          ) : (
+            <div className="">Sort Population Inactive</div>
+          )}
+        </div> */}
+        <div className={styles.cardshome}>
+          <Cards allCountries={allCountries} />
+        </div>
+        <Page page={page + 1} maxPage={maxPage} />
       </div>
-      <div className={styles.cardshome}>
-        <Cards allCountries={allCountries} />
-      </div>
-      <Page page={page + 1} maxPage={maxPage} />
-    </div>
+    </>
   );
 };
 

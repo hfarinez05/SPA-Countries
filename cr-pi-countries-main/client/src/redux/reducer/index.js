@@ -36,6 +36,7 @@ function rootReducer(state = initialState, action) {
       return {
         ...state,
         allCountries: action.payload,
+        filterCountries: action.payload,
       };
     case GET_BY_ID:
       return {
@@ -56,14 +57,14 @@ function rootReducer(state = initialState, action) {
         return state;
       if (action.payload === "prev" && prevPage < 0) return state;
 
-      const filterCountries =
+      const filterCountriess =
         state.filterCountries.length > 0
           ? state.filterCountries
           : state.countriesCopy;
 
       return {
         ...state,
-        allCountries: filterCountries.slice(indexPage, indexPage + itemsPage),
+        allCountries: filterCountriess.slice(indexPage, indexPage + itemsPage),
         currentPage: action.payload === "next" ? nextPage : prevPage,
       };
     }

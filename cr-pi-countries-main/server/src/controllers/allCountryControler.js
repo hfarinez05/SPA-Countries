@@ -37,8 +37,8 @@ const getCountryByName = async (name) => {
   const countryByQuery = await Country.findAll({
     where: {
       name: {
-        //[Op.iLike]: `%${name}%`,
-        [Op.iLike]: `%${name.split("").join("%")}%`,
+        [Op.iLike]: `%${name}%`,
+        //[Op.iLike]: `%${name.split("").join("%")}%`,
       },
     },
   });

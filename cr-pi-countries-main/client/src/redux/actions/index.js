@@ -58,7 +58,7 @@ export function getCountriesById(id) {
 export function postActivity(state) {
   return async function () {
     try {
-      await axios.post("http://localhost:3001/countries", state);
+      await axios.post("http://localhost:3001/activities", state);
       alert("The activity has been created");
     } catch (error) {
       alert(`Error:${error.response.data.error}`);

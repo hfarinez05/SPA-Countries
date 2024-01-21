@@ -5,3 +5,4 @@ export const GET_BY_ID = "GET_BY_ID";
 export const PAGES = "PAGES";
 export const ALFABETIC_SORT = "ALFABETIC_SORT";
 export const SORT_POPULATION = "SORT_POPULATION";
+export const POST_ACTIVITIES = "POST_ACTIVITIES";
